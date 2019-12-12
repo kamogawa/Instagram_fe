@@ -16,7 +16,8 @@ export default () => {
   const firstName = useInput("");
   const lastName = useInput("");
   const secret = useInput("");
-  const email = useInput("");
+  const email = useInput("captain_kbg@naver.com");
+
   const requestSecretMutation = useMutation(LOG_IN, {
     variables: { email: email.value }
   });
@@ -53,7 +54,8 @@ export default () => {
             toast.success("Check your inbox for your login secret");
             setAction("confirm");
           }
-        } catch {
+        } catch(e) {
+          console.log(e);
           toast.error("Can't request secret, try again");
         }
       } else {
